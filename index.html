@@ -3,19 +3,18 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Favourite Message Word Calcutor</title>
+  <title>Favourite Message Word Calculator</title>
   <style>
- html, body {
-    height: 100%;
-    margin: 0;
-    overflow: hidden; /* Prevent scroll */
-  }
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+    }
+
     body {
       font-family: Arial, sans-serif;
-      height: 100vh;
-      margin: 0;
-      background: #3F5EFB;
-      background: radial-gradient(circle,rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
+      background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -23,7 +22,7 @@
 
     .container {
       background: white;
-      padding: 40px;
+      padding: 50px;
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       width: 70%;
@@ -34,7 +33,6 @@
 
     .container.active {
       background-color: #d4edda;
-      /* light green */
     }
 
     input {
@@ -55,16 +53,32 @@
       font-weight: bold;
       color: #1c7430;
     }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 10px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #ff4d4d;
+      color: white;
+    }
+
+    button:hover {
+      background-color: #e60000;
+    }
   </style>
 </head>
 
 <body>
 
   <div class="container" id="mainContainer">
-    <h2>Favourite Message Word Calcutor</h2>
-    <input type="text" id="textInput" placeholder="Add our favourite message..." oninput="calculateSum()" />
+    <h2>Favourite Message Word Calculator</h2>
+    <input type="text" id="textInput" placeholder="Add your favourite message..." oninput="calculateSum()" />
     <div id="output"></div>
     <div id="total">Total: 0</div>
+    <button onclick="clearPage()">Clear</button>
   </div>
 
   <script>
@@ -97,6 +111,14 @@
         totalDisplay.innerHTML = 'Total: 0';
       }
     }
+
+    function clearPage() {
+      document.getElementById("textInput").value = '';
+      document.getElementById("output").innerHTML = '';
+      document.getElementById("total").innerHTML = 'Total: 0';
+      document.getElementById("mainContainer").classList.remove("active");
+    }
   </script>
 </body>
+
 </html>
